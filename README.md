@@ -206,10 +206,10 @@ The system uses a 4-stage agentic pipeline:
 
 ## Security & Compliance
 
-- ✅ **No real PHI** - All data is synthetic
-- ✅ **100% Local** - No cloud API calls
-- ✅ **Audit Trail** - Every query logged immutably
-- ✅ **No Data Leakage** - All processing on local machine
+-  **No real PHI** - All data is synthetic
+-  **100% Local** - No cloud API calls
+-  **Audit Trail** - Every query logged immutably
+-  **No Data Leakage** - All processing on local machine
 
 ## Performance
 
