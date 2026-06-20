@@ -15,7 +15,7 @@ Hospital insurance department staff spend hours cross-referencing patient cases 
 ## User Review Required
 
 > [!IMPORTANT]
-> **LLM Choice impacts everything downstream.** `gemma:2b` (≈1.5GB VRAM) gives better reasoning; `tinyllama` (≈640MB) is faster but weaker at instruction-following. Embedding model `nomic-embed-text` (≈274MB) is recommended regardless of chat model choice. Please confirm which chat model to use before Phase 1 starts.
+> **LLM Choice impacts everything downstream.** Based on benchmark data for CPU-only inference, `llama3.2:3b` (≈7GB RAM, 42.3 tok/s, 1.2s P50 latency) provides the best balance of quality and speed for interactive use. If RAM is limited, alternative models like `phi3:mini` (≈2.3GB RAM) can be used but have significantly slower inference (29s latency). Embedding model `nomic-embed-text` (≈274MB, 768-dim vectors) is recommended regardless of chat model choice. Please confirm `llama3.2:3b` is acceptable before Phase 1 starts.
 
 > [!WARNING]
 > **MongoDB must be installed locally.** This plan assumes you can run MongoDB with native vector search support (MongoDB 6.0+). If not available, we can fall back to ChromaDB (file-based, zero setup). Please confirm MongoDB availability.
@@ -440,7 +440,7 @@ For this local single-user portfolio project, access control is implemented at t
 
 ## Implementation Phases
 
-### Phase 1 — Environment Setup & Data Generation (Est. 3-4 hours)
+### Phase 1 — Environment Setup & Data Generation 
 
 **Goals**: Working Ollama + PostgreSQL, all synthetic data on disk.
 
@@ -455,7 +455,7 @@ For this local single-user portfolio project, access control is implemented at t
 
 ---
 
-### Phase 2 — Data Ingestion Pipeline (Est. 2-3 hours)
+### Phase 2 — Data Ingestion Pipeline 
 
 **Goals**: All documents chunked, embedded, and stored in pgvector.
 
@@ -478,7 +478,7 @@ def embed_chunks(chunks: list[str]) -> list[list[float]]:
 
 ---
 
-### Phase 3 — Vector Storage & Hybrid Retrieval (Est. 3-4 hours)
+### Phase 3 — Vector Storage & Hybrid Retrieval 
 
 **Goals**: Fast, accurate retrieval combining semantic + rule-based filtering.
 
@@ -510,7 +510,7 @@ def reciprocal_rank_fusion(semantic_results, rule_results, k=60):
 
 ---
 
-### Phase 4 — Query Routing Agent (Est. 3-4 hours)
+### Phase 4 — Query Routing Agent 
 
 **Goals**: Intelligent routing to the right document type, entity extraction.
 
@@ -554,7 +554,7 @@ Return this exact JSON structure:
 
 ---
 
-### Phase 5 — Reflection Agent (Est. 2-3 hours)
+### Phase 5 — Reflection Agent 
 
 **Goals**: Validate retrieved chunks are actually relevant; score confidence; handle no-result case.
 
@@ -603,7 +603,7 @@ I could not find sufficient policy documentation to answer your query with confi
 
 ---
 
-### Phase 6 — UI Development (Est. 4-5 hours)
+### Phase 6 — UI Development 
 
 **Goals**: Clean, professional Streamlit UI with 3 pages.
 
@@ -660,7 +660,7 @@ The `reasoning` field is populated by the router and reflection agents:
 
 ---
 
-### Phase 7 — Testing & Integration (Est. 2-3 hours)
+### Phase 7 — Testing & Integration 
 
 **Goals**: End-to-end smoke tests, 10 sample query validations.
 
