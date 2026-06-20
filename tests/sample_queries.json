@@ -1,0 +1,181 @@
+"""
+tests/sample_queries.json
+25 realistic query scenarios covering all 4 intents for smoke testing.
+"""
+[
+  {
+    "id": "q01",
+    "intent": "coverage_check",
+    "query": "Does the Star Health individual policy cover knee replacement surgery for a 58-year-old patient?",
+    "expect_recommendation": ["APPROVE", "REJECT", "ESCALATE"],
+    "expect_doc_types": ["policy"]
+  },
+  {
+    "id": "q02",
+    "intent": "coverage_check",
+    "query": "Is cataract surgery covered under the senior citizen health plan?",
+    "expect_recommendation": ["APPROVE", "REJECT", "ESCALATE"],
+    "expect_doc_types": ["policy"]
+  },
+  {
+    "id": "q03",
+    "intent": "coverage_check",
+    "query": "What is the sub-limit for cardiac bypass surgery under HDFC ERGO group policy?",
+    "expect_recommendation": ["APPROVE", "ESCALATE"],
+    "expect_doc_types": ["policy"]
+  },
+  {
+    "id": "q04",
+    "intent": "coverage_check",
+    "query": "Is dialysis covered for a Type 2 diabetic patient on a 6-month-old policy?",
+    "expect_recommendation": ["REJECT", "ESCALATE"],
+    "expect_doc_types": ["policy"]
+  },
+  {
+    "id": "q05",
+    "intent": "coverage_check",
+    "query": "What documents are required to file a reimbursement claim?",
+    "expect_recommendation": ["APPROVE", "ESCALATE"],
+    "expect_doc_types": ["policy"]
+  },
+  {
+    "id": "q06",
+    "intent": "coverage_check",
+    "query": "Is the first 30-day exclusion applicable for accident injuries?",
+    "expect_recommendation": ["APPROVE", "REJECT"],
+    "expect_doc_types": ["policy"]
+  },
+  {
+    "id": "q07",
+    "intent": "coverage_check",
+    "query": "What is the co-payment percentage for treatment at a non-network hospital?",
+    "expect_recommendation": ["APPROVE", "ESCALATE"],
+    "expect_doc_types": ["policy"]
+  },
+  {
+    "id": "q08",
+    "intent": "coverage_check",
+    "query": "Is pre-existing diabetes covered after 4 years of continuous policy?",
+    "expect_recommendation": ["APPROVE", "ESCALATE"],
+    "expect_doc_types": ["policy"]
+  },
+  {
+    "id": "q09",
+    "intent": "claims_precedent",
+    "query": "Show me past claims where knee replacement was rejected due to waiting period",
+    "expect_recommendation": ["ESCALATE", "REJECT"],
+    "expect_doc_types": ["claim"]
+  },
+  {
+    "id": "q10",
+    "intent": "claims_precedent",
+    "query": "What is the typical approval rate for cardiac surgery claims?",
+    "expect_recommendation": ["APPROVE", "ESCALATE"],
+    "expect_doc_types": ["claim"]
+  },
+  {
+    "id": "q11",
+    "intent": "claims_precedent",
+    "query": "Were there any claims rejected for incomplete documentation?",
+    "expect_recommendation": ["REJECT", "ESCALATE"],
+    "expect_doc_types": ["claim"]
+  },
+  {
+    "id": "q12",
+    "intent": "claims_precedent",
+    "query": "How much was approved for dialysis claims on average?",
+    "expect_recommendation": ["APPROVE", "ESCALATE"],
+    "expect_doc_types": ["claim"]
+  },
+  {
+    "id": "q13",
+    "intent": "claims_precedent",
+    "query": "Show me claims where cancer treatment was partially approved",
+    "expect_recommendation": ["APPROVE", "ESCALATE"],
+    "expect_doc_types": ["claim"]
+  },
+  {
+    "id": "q14",
+    "intent": "regulatory_compliance",
+    "query": "What does IRDA say about pre-authorisation timelines for emergency admissions?",
+    "expect_recommendation": ["APPROVE", "ESCALATE"],
+    "expect_doc_types": ["regulation"]
+  },
+  {
+    "id": "q15",
+    "intent": "regulatory_compliance",
+    "query": "What are the IRDA rules on claim settlement within 30 days?",
+    "expect_recommendation": ["APPROVE", "ESCALATE"],
+    "expect_doc_types": ["regulation"]
+  },
+  {
+    "id": "q16",
+    "intent": "regulatory_compliance",
+    "query": "Is mental health hospitalisation mandated under IRDA guidelines?",
+    "expect_recommendation": ["APPROVE", "ESCALATE"],
+    "expect_doc_types": ["regulation"]
+  },
+  {
+    "id": "q17",
+    "intent": "regulatory_compliance",
+    "query": "What are the portability rights when switching health insurance providers?",
+    "expect_recommendation": ["APPROVE", "ESCALATE"],
+    "expect_doc_types": ["regulation"]
+  },
+  {
+    "id": "q18",
+    "intent": "regulatory_compliance",
+    "query": "Can an insurer deny cashless claim without citing a specific policy clause?",
+    "expect_recommendation": ["REJECT", "ESCALATE"],
+    "expect_doc_types": ["regulation"]
+  },
+  {
+    "id": "q19",
+    "intent": "general",
+    "query": "What is the negotiated rate for ICU per day at Apollo Hospitals?",
+    "expect_recommendation": ["APPROVE", "ESCALATE"],
+    "expect_doc_types": ["agreement"]
+  },
+  {
+    "id": "q20",
+    "intent": "general",
+    "query": "What discount does Fortis Healthcare provide on pharmacy for insured patients?",
+    "expect_recommendation": ["APPROVE", "ESCALATE"],
+    "expect_doc_types": ["agreement"]
+  },
+  {
+    "id": "q21",
+    "intent": "coverage_check",
+    "query": "A 70-year-old patient needs total hip replacement. Policy is 1 year old. Is it covered?",
+    "expect_recommendation": ["REJECT", "ESCALATE"],
+    "expect_doc_types": ["policy"]
+  },
+  {
+    "id": "q22",
+    "intent": "coverage_check",
+    "query": "Can we file a claim for COVID-19 home care treatment?",
+    "expect_recommendation": ["APPROVE", "ESCALATE"],
+    "expect_doc_types": ["regulation", "policy"]
+  },
+  {
+    "id": "q23",
+    "intent": "claims_precedent",
+    "query": "Were any appendectomy claims submitted more than 30 days after discharge?",
+    "expect_recommendation": ["REJECT", "ESCALATE"],
+    "expect_doc_types": ["claim"]
+  },
+  {
+    "id": "q24",
+    "intent": "coverage_check",
+    "query": "Is gene therapy covered under any of our policies?",
+    "expect_recommendation": ["REJECT"],
+    "expect_doc_types": ["policy"]
+  },
+  {
+    "id": "q25",
+    "intent": "regulatory_compliance",
+    "query": "What is the Arogya Sanjeevani policy and is our hospital empanelled for it?",
+    "expect_recommendation": ["APPROVE", "ESCALATE"],
+    "expect_doc_types": ["regulation"]
+  }
+]
