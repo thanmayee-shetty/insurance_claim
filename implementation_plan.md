@@ -18,7 +18,7 @@ Hospital insurance department staff spend hours cross-referencing patient cases 
 > **LLM Choice impacts everything downstream.** `gemma:2b` (≈1.5GB VRAM) gives better reasoning; `tinyllama` (≈640MB) is faster but weaker at instruction-following. Embedding model `nomic-embed-text` (≈274MB) is recommended regardless of chat model choice. Please confirm which chat model to use before Phase 1 starts.
 
 > [!WARNING]
-> **PostgreSQL + pgvector must be installed locally.** This plan assumes you can run `psql` and install the `pgvector` extension. If not available, we can fall back to ChromaDB (file-based, zero setup). Please confirm PostgreSQL availability.
+> **MongoDB must be installed locally.** This plan assumes you can run MongoDB with native vector search support (MongoDB 6.0+). If not available, we can fall back to ChromaDB (file-based, zero setup). Please confirm MongoDB availability.
 
 > [!NOTE]
 > All synthetic data will use obviously fictional patient names, policy numbers, and amounts. No real PHI will ever be used.
